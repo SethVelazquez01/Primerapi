@@ -1,8 +1,8 @@
-const express = require('express')
+const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; 
 
-app.listen(PORT,()=>{
-    console.log(`app online in port: ${PORT}`);
-    
-})
+
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
