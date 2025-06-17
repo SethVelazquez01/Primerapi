@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000; 
+const config = require('./app/config/configuracion');
+const joyasRoutes = require('./app/routes/joyasroute');
 
+app.use('/Joyas', joyasRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+app.listen(config.PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${config.PORT}`);
 });
