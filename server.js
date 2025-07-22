@@ -1,12 +1,8 @@
-const express = require('express');
-const app = express();
-const config = require('./app/config/configuracion');
-const joyasRoutes = require('./app/routes/joyasroute');
-const conexion = require('./app/config/conexion')
+const app = require('./app/app.js'); // Importa la instancia que ya tiene middlewares
+const config = require('./app/config/configuracion.js');
+const conexion = require('./app/config/conexion.js');
 
-conexion.connect()
-
-app.use('/Joyas', joyasRoutes);
+conexion.connect();
 
 app.listen(config.PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${config.PORT}`);

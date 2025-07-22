@@ -1,12 +1,14 @@
-const express = require('express')
+const express = require('express');
 const app = express();
-const router =require('./routes/joyasroute')
 
-app.use(express.urlencoded({extended:false}))
-app.use(express.json())
+const joyasRoutes = require('./routes/joyasroute');
 
-app.use('/Joyas',router)
+// Middlewares necesarios para parsear JSON y form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Rutas
+app.use('/joyas', joyasRoutes);
 
-module.exports=app
+module.exports = app;
 

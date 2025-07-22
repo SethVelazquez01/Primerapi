@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const joyasSchema = mongoose.Schema({
+const joyaEschema = new mongoose.Schema({
     nombre: {
         type: String,
         required: true,
-        maxlength: 80 // Corregido: usa maxlength en lugar de length
+        maxlength: 80 
     },
     descripcion: {
         type: String,
         required: true,
-        maxlength: 250 // Corregido: usa maxlength en lugar de length
+        maxlength: 250 
     },
     precio: {
         type: Number,
@@ -23,8 +23,11 @@ const joyasSchema = mongoose.Schema({
         type: Number,
         default: 10
     }
-});
+}, { 
+    versionKey: false, 
+    strict: true
+}); 
 
-const joyasModel = mongoose.model('joyas', joyasSchema); 
+const Joya = mongoose.model('Joya', joyaEschema);
 
-module.exports = joyasModel;
+module.exports = Joya;
